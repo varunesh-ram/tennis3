@@ -1,13 +1,38 @@
 import React from 'react';
 import { Constants } from '../constants/Constants';
+import PropTypes from 'prop-types';
 
 export default class Scorer extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { scoreText: Constants.InitialScore };
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.player1Score !== this.props.player1Score || prevProps.player2Score !== this.props.player2Score)
+            this.setState({ scoreText: this.updateScore() });
+    }
+
+    updateScore = () => {
+        if (this.props.player1Score === 1)
+            return Constants.Player1ScoredOnce;
+        return Constants.InitialScore;
+    }
+
     render() {
         return (
             <div>
                 <h5>{Constants.ScoreHeader}</h5>
-                <label>{Constants.InitialScore}</label>
+                <label>{this.state.scoreText}</label>
             </div>
         );
     }
+}
+
+Scorer.propTypes = {
+    player1Score: PropTypes.number.isRequired
+}
+
+Scorer.defaultProps = {
+    player1Score: 0
 }

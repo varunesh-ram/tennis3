@@ -27,4 +27,8 @@ describe(("<TennisGame/> Game functionality"), () => {
   it("On Game Start, Score Should be Love All", () => {
     expect(wrapper.find(Scorer).find("label").text()).toEqual("Love all");
   });
+  it("On Player 1 Scores once, Score Should be Fifteen Love", () => {
+    wrapper.find(Player).at(0).find("button").simulate('click');
+    expect(wrapper.find(Scorer).find("label").text()).toEqual("Fifteen,Love");
+  });
 });

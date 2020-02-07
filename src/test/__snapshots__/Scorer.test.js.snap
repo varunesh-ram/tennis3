@@ -1,3 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Scorer/> component should render correctly 1`] = `ShallowWrapper {}`;
+exports[`<Scorer/> component no props should render correctly 1`] = `ShallowWrapper {}`;
+
+exports[`<Scorer/> component with props should render correctly 1`] = `ShallowWrapper {}`;
