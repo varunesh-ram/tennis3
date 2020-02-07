@@ -21,10 +21,15 @@ export default class Scorer extends React.Component {
         const { player1Score, player2Score } = this.props;
 
         if (player1Score === 0 && player2Score <= 3)
-            return Constants.ScoreLookup[player1Score] + Constants.Comma + Constants.ScoreLookup[player2Score];
+            return this.getScoreFromLookUp();
         if (player1Score <= 3 && player2Score === 0)
-            return Constants.ScoreLookup[player1Score] + Constants.Comma + Constants.ScoreLookup[player2Score];
+            return this.getScoreFromLookUp();
         return Constants.InitialScore;
+    }
+
+    getScoreFromLookUp = () => {
+        const { player1Score, player2Score } = this.props;
+        return Constants.ScoreLookup[player1Score] + Constants.Comma + Constants.ScoreLookup[player2Score];
     }
 
     render() {
