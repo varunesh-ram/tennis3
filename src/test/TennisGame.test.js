@@ -112,4 +112,12 @@ describe(("<TennisGame/> Game functionality"), () => {
     player1ScoreButton.simulate('click');
     expect(scoreLabel.text()).toEqual("Player 1 wins");
   });
+  it("On Player 1 Scores once and Player 2 scores four times, Score Should be Player 2 wins", () => {
+    player1ScoreButton.simulate('click');
+    player2ScoreButton.simulate('click');
+    player2ScoreButton.simulate('click');
+    player2ScoreButton.simulate('click');
+    player2ScoreButton.simulate('click');
+    expect(scoreLabel.text()).toEqual("Player 2 wins");
+  });
 });
