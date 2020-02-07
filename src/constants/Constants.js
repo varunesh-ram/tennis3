@@ -8,7 +8,6 @@ export const Constants = {
     Comma: ",",
     All: " all",
     Deuce: "Deuce",
-    AdvantagePlayer1Text: "Advantage Player 1",
-    AdvantagePlayer2Text: "Advantage Player 2",
+    AdvantageText: "Advantage ",
     ScoreHeader: "Score"
 };
