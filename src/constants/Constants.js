@@ -4,8 +4,7 @@ export const Constants = {
     Player1Name: "Player 1",
     Player2Name: "Player 2",
     InitialScore: "Love all",
-    Player1ScoredOnce: "Fifteen,Love",
-    Player1ScoredTwice: "Thirty,Love",
-    Player1ScoredThrice: "Forty,Love",
+    ScoreLookup: ["Love", "Fifteen", "Thirty", "Forty"],
+    Comma_Love: ",Love",
     ScoreHeader: "Score"
 };
