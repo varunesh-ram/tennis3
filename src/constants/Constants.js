@@ -7,5 +7,6 @@ export const Constants = {
     ScoreLookup: ["Love", "Fifteen", "Thirty", "Forty"],
     Comma: ",",
     BothScoredOnce:"Fifteen all",
+    BothScoredTwice:"Thirty all",
     ScoreHeader: "Score"
 };
