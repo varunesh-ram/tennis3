@@ -20,7 +20,7 @@ export default class Scorer extends React.Component {
     updateScore = () => {
         const { player1Score, player2Score } = this.props;
 
-        if (player1Score >= 4 && player1Score === player2Score + 1)
+        if (player1Score >= 4 && this.isPlayer1OnePointGreaterThanPlayer2())
             return Constants.AdvantagePlayer1Text;
         if (this.isDeuce())
             return Constants.Deuce;
@@ -29,6 +29,10 @@ export default class Scorer extends React.Component {
         if (player1Score <= 3 && player2Score <= 3)
             return this.getScoreFromLookUp();
         return Constants.InitialScore;
+    }
+
+    isPlayer1OnePointGreaterThanPlayer2 = () => {
+        return this.props.player1Score === this.props.player2Score + 1;
     }
 
     isDeuce = () => {
