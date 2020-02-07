@@ -20,8 +20,11 @@ export default class Scorer extends React.Component {
     updateScore = () => {
         const { player1Score, player2Score } = this.props;
 
-        if (player1Score === player2Score && player1Score <= 2)
+        if (player1Score === player2Score) {
+            if (player1Score >= 3)
+                return Constants.Deuce;
             return this.sameScore();
+        }
         if (player1Score <= 3 && player2Score <= 3)
             return this.getScoreFromLookUp();
         return Constants.InitialScore;

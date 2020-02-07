@@ -7,5 +7,6 @@ export const Constants = {
     ScoreLookup: ["Love", "Fifteen", "Thirty", "Forty"],
     Comma: ",",
     All: " all",
+    Deuce: "Deuce",
     ScoreHeader: "Score"
 };
