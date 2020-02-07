@@ -19,8 +19,10 @@ export default class Scorer extends React.Component {
 
     updateScore = () => {
 
-        if (this.hasWinner())
+        if (this.hasWinner()) {
+            this.props.isGameOver();
             return this.playerWithHighestScore() + Constants.WinnerText;
+        }
         if (this.hasAdvantage())
             return Constants.AdvantageText + this.playerWithHighestScore();
         if (this.isDeuce())
@@ -102,7 +104,8 @@ export default class Scorer extends React.Component {
 
 Scorer.propTypes = {
     player1Score: PropTypes.number.isRequired,
-    player2Score: PropTypes.number.isRequired
+    player2Score: PropTypes.number.isRequired,
+    isGameOver: PropTypes.func
 }
 
 Scorer.defaultProps = {
