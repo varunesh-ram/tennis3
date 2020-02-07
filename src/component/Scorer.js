@@ -24,6 +24,8 @@ export default class Scorer extends React.Component {
             return this.getScoreFromLookUp();
         if (player1Score <= 3 && player2Score === 0)
             return this.getScoreFromLookUp();
+        if (player1Score === 1 && player2Score === 1)
+            return Constants.BothScoredOnce;
         return Constants.InitialScore;
     }
 
