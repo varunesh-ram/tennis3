@@ -6,6 +6,7 @@ export const Constants = {
     InitialScore: "Love all",
     ScoreLookup: ["Love", "Fifteen", "Thirty", "Forty"],
     Player2ScoredOnce: "Love,Fifteen",
+    Player2ScoredTwice: "Love,Thirty",
     Comma_Love: ",Love",
     ScoreHeader: "Score"
 };
