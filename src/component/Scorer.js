@@ -14,10 +14,12 @@ export default class Scorer extends React.Component {
     }
 
     isPropsChanged = (prevProps) => {
-        return prevProps.player1Score !== this.props.player1Score || prevProps.player2Score !== this.props.player2Score
+        return prevProps.player1Score !== this.props.player1Score || prevProps.player2Score !== this.props.player2Score;
     }
 
     updateScore = () => {
+        if (this.props.player1Score === 2)
+            return Constants.Player1ScoredTwice;
         if (this.props.player1Score === 1)
             return Constants.Player1ScoredOnce;
         return Constants.InitialScore;
