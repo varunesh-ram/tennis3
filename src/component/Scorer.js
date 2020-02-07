@@ -18,21 +18,25 @@ export default class Scorer extends React.Component {
     }
 
     updateScore = () => {
-        const { player1Score, player2Score } = this.props;
 
-        if (player1Score >= 4 && this.isPlayer1TwoOrMorePointsGreaterThanPlayer2())
-            return Constants.Player1WinnerText;
-        if (player2Score >= 4 && this.isPlayer2TwoOrMorePointsGreaterThanPlayer1())
-            return Constants.Player2WinnerText;
+        if (this.hasWinner())
+            return this.playerWithHighestScore() + Constants.WinnerText;
         if (this.hasAdvantage())
             return Constants.AdvantageText + this.playerWithHighestScore();
         if (this.isDeuce())
             return Constants.Deuce;
         if (this.isBothPlayersScoredEqual())
             return this.sameScore();
-        if (player1Score <= 3 && player2Score <= 3)
-            return this.getScoreFromLookUp();
-        return Constants.InitialScore;
+        return this.getScoreFromLookUp();
+    }
+
+    hasWinner = () => {
+        const player1Score = this.props.player1Score, player2Score = this.props.player2Score;
+        if (player1Score >= 4 && this.isPlayer1TwoOrMorePointsGreaterThanPlayer2())
+            return true;
+        if (player2Score >= 4 && this.isPlayer2TwoOrMorePointsGreaterThanPlayer1())
+            return true;
+        return false;
     }
 
     isPlayer1TwoOrMorePointsGreaterThanPlayer2 = () => {
