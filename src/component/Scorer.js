@@ -18,9 +18,11 @@ export default class Scorer extends React.Component {
     }
 
     updateScore = () => {
-        const { player1Score } = this.props;
-        
-        if (player1Score <= 3)
+        const { player1Score, player2Score } = this.props;
+
+        if (player1Score === 0 && player2Score === 1)
+            return Constants.Player2ScoredOnce;
+        if (player1Score <= 3 && player2Score === 0)
             return Constants.ScoreLookup[player1Score] + Constants.Comma_Love;
         return Constants.InitialScore;
     }
@@ -36,9 +38,11 @@ export default class Scorer extends React.Component {
 }
 
 Scorer.propTypes = {
-    player1Score: PropTypes.number.isRequired
+    player1Score: PropTypes.number.isRequired,
+    player2Score: PropTypes.number.isRequired
 }
 
 Scorer.defaultProps = {
-    player1Score: 0
+    player1Score: 0,
+    player2Score: 0
 }

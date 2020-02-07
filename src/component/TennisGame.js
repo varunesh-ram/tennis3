@@ -7,12 +7,15 @@ export default class TennisGame extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            player1Score: 0
+            player1Score: 0,
+            player2Score: 0
         }
     }
 
-    incrementScore = () => {
-        this.setState((prevState, props) => ({ player1Score: prevState.player1Score + 1 }));
+    incrementScore = player => {
+        this.setState((prevState, props) => (
+            player === Constants.Player1Name ? { player1Score: prevState.player1Score + 1 } : { player2Score: prevState.player2Score + 1 }
+        ));
     }
 
     render() {
@@ -20,11 +23,11 @@ export default class TennisGame extends React.Component {
             <div>
                 <div className="playerContainer">
                     <div className="leftContainer">
-                        <Player name={Constants.Player1Name} onBallWin={this.incrementScore} />
+                        <Player name={Constants.Player1Name} onBallWin={this.incrementScore.bind(this)} />
                     </div>
-                    <Player name={Constants.Player2Name} />
+                    <Player name={Constants.Player2Name} onBallWin={this.incrementScore.bind(this)} />
                 </div>
-                <Scorer player1Score={this.state.player1Score} />
+                <Scorer player1Score={this.state.player1Score} player2Score={this.state.player2Score} />
             </div>);
     }
 }

@@ -5,6 +5,7 @@ export const Constants = {
     Player2Name: "Player 2",
     InitialScore: "Love all",
     ScoreLookup: ["Love", "Fifteen", "Thirty", "Forty"],
+    Player2ScoredOnce: "Love,Fifteen",
     Comma_Love: ",Love",
     ScoreHeader: "Score"
 };
