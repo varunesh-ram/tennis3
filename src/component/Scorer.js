@@ -22,6 +22,8 @@ export default class Scorer extends React.Component {
 
         if (player1Score >= 4 && this.isPlayer1OnePointGreaterThanPlayer2())
             return Constants.AdvantagePlayer1Text;
+        if (player2Score >= 4 && this.isPlayer2OnePointGreaterThanPlayer1())
+            return Constants.AdvantagePlayer2Text;
         if (this.isDeuce())
             return Constants.Deuce;
         if (this.isBothPlayersScoredEqual())
@@ -29,6 +31,10 @@ export default class Scorer extends React.Component {
         if (player1Score <= 3 && player2Score <= 3)
             return this.getScoreFromLookUp();
         return Constants.InitialScore;
+    }
+
+    isPlayer2OnePointGreaterThanPlayer1 = () => {
+        return this.props.player2Score === this.props.player1Score + 1;
     }
 
     isPlayer1OnePointGreaterThanPlayer2 = () => {

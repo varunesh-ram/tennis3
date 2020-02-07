@@ -9,5 +9,6 @@ export const Constants = {
     All: " all",
     Deuce: "Deuce",
     AdvantagePlayer1Text: "Advantage Player 1",
+    AdvantagePlayer2Text: "Advantage Player 2",
     ScoreHeader: "Score"
 };
