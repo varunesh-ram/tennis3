@@ -105,4 +105,11 @@ describe(("<TennisGame/> Game functionality"), () => {
     player2ScoreButton.simulate('click');
     expect(scoreLabel.text()).toEqual("Advantage Player 2");
   });
+  it("On Player 1 Scores four times, Score Should be Player 1 wins", () => {
+    player1ScoreButton.simulate('click');
+    player1ScoreButton.simulate('click');
+    player1ScoreButton.simulate('click');
+    player1ScoreButton.simulate('click');
+    expect(scoreLabel.text()).toEqual("Player 1 wins");
+  });
 });
